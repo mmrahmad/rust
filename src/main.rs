@@ -2,11 +2,20 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 
+// fn test() {
+//     let x = 5;
+//     println!("the x is {x}");
+    
+//     x = 6;
+//     println!("next x is {x}");
+// }
+
 fn main() {
     let secrete_number = rand::thread_rng().gen_range(1..=100);
+    let mut attempts = 0;
 
     loop {
-        println!("Guess the number!");
+        println!("Guess the number: ");
         let mut guess = String::new();
 
         io::stdin()
@@ -27,5 +36,7 @@ fn main() {
                 break;
             }
         }
+        attempts += 1;
     }
+    println!("You tried {attempts} times!")
 }
